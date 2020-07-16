@@ -4,7 +4,7 @@ services:
   api:
     build: ./backend
     environment:
-      FLASK_ENV: ${FLASK_ENV:-"production"}
+      FLASK_ENV: ${FLASK_ENV:-production}
       FLASK_APP: "app.py"
     ports:
       - "5000:5000"
