@@ -26,6 +26,18 @@ services:
     command: "npm start"
     networks:
       frontend:
+  mongo:
+    image: mongo
+    volumes:
+      - ./mongodata:/data/db
+    container_name:  mongo
+    networks:
+      backend:
+  redis:
+    image: redis:alpine
+    container_name:  redis
+    networks:
+      backend:
 
 networks:
   backend:
