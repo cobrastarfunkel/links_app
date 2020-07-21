@@ -21,7 +21,7 @@ class loginForm extends Component {
 
     handleSubmit = (event) => {
         console.log(this.state.username);
-        alert('Name and password Entered: ' + this.state.username + " " + this.state.password);
+        alert(`Name and password Entered: ${this.state.username} ${this.state.password}`);
         event.preventDefault();
     }
 
