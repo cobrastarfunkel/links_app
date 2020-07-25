@@ -6,7 +6,7 @@ const textInput = (props) => (
         <label>
             {props.label}
         </label>
-        <input type={props.type} onChange={props.onChange} key={props.name} />
+        <input type={props.type} onChange={props.onChange} name={props.name} />
     </div>
 );
 

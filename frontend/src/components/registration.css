@@ -4,6 +4,8 @@
         auto auto auto;
     grid-template-columns: auto auto;
     margin-bottom: 1em;
+    padding-left: 10vw;
+    padding-right: 10vw;
 }
 
 #firstname {

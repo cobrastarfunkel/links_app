@@ -39,20 +39,22 @@ class loginForm extends Component {
         return (
             <div>
                 <form>
-                    <div className="loginForm">
+                    <div>
                         <TextInput
                             label="Username"
-                            name="username"
+                            key="username"
                             value={this.state.username}
                             type="text"
                             onChange={this.handleChange}
+                            name="username"
                         />
                         <TextInput
                             label="Password"
-                            name="password"
+                            key="password"
                             value={this.state.password}
                             type="password"
                             onChange={this.handleChange}
+                            name="password"
                         />
                     </div>
                     <div>
