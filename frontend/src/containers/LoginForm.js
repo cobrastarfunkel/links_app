@@ -3,23 +3,44 @@ import TextInput from "../components/utilities/TextInput"
 import "../containers/App.css"
 import Modal from "../components/utilities/Modal";
 import Registration from "../components/Registration"
+import registration from "../components/Registration";
 
 class loginForm extends Component {
     constructor(props) {
         super(props);
 
         this.state = {
+            modalShowing: false,
+
             username: "",
             password: "",
-            modalShowing: false
+
+            registerData: {
+                username: "",
+                password: "",
+                email: "",
+                firstname: "",
+                lastname: ""
+            }
         }
 
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.showModal = this.showModal.bind(this);
+        this.handleRegistrationChange = this.handleRegistrationChange.bind(this);
     }
     handleChange = (event) => {
         const { target: { name, value } } = event;
         this.setState({ [name]: value });
+    }
+
+    handleRegistrationChange = (event) => {
+        const { target: { name, value } } = event;
+        let tempData = { ...this.state.registerData };
+        tempData[name] = value;
+        this.setState({ registerData: tempData });
+
+        console.log(`${JSON.stringify(this.state.registerData)}`)
     }
 
     handleSubmit = (event) => {
@@ -67,7 +88,7 @@ class loginForm extends Component {
                         <Registration
                             onClick={this.handleSubmit}
                             close={this.showModal}
-                            onChange={this.handleChange}
+                            onChange={this.handleRegistrationChange}
                         />
                     </Modal>
                 </div>

@@ -12,17 +12,21 @@ const registration = (props) => {
         { label: "Username", type: "text" },
         { label: "Email", type: "text" },
     ];
+
     const textFields = textInputs.map((key) => {
+        const nospaces = key.label.replace(/\s/g, '');
         return (
             <TextInput
-                id={key.label.replace(/\s/g, '').toLowerCase()}
+                id={nospaces.toLowerCase()}
                 label={key.label}
                 type={key.type}
-                key={key.label.replace(/\s/g, '')}
+                key={nospaces}
                 onChange={props.onChange}
+                name={nospaces.toLowerCase()}
             />
         )
     })
+
     return (
         <div>
             <div className="modal-header">
