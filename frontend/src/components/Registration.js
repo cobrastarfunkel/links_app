@@ -4,29 +4,6 @@ import TextInput from './utilities/TextInput';
 import './registration.css'
 
 const registration = (props) => {
-    const textInputs = [
-        { label: "First Name", type: "text" },
-        { label: "Last Name", type: "text" },
-        { label: "Password", type: "password" },
-        { label: "Verify Password", type: "password" },
-        { label: "Username", type: "text" },
-        { label: "Email", type: "text" },
-    ];
-
-    const textFields = textInputs.map((key) => {
-        const nospaces = key.label.replace(/\s/g, '');
-        return (
-            <TextInput
-                id={nospaces.toLowerCase()}
-                label={key.label}
-                type={key.type}
-                key={nospaces}
-                onChange={props.onChange}
-                name={nospaces.toLowerCase()}
-            />
-        )
-    })
-
     return (
         <div>
             <div className="modal-header">
@@ -40,7 +17,7 @@ const registration = (props) => {
                 </div>
             </div>
             <form className="reg-content">
-                {textFields}
+                {props.textFields}
             </form>
             <div>
                 <button onClick={props.onClick}>Submit</button>

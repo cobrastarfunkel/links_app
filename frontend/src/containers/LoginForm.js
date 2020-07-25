@@ -3,7 +3,6 @@ import TextInput from "../components/utilities/TextInput"
 import "../containers/App.css"
 import Modal from "../components/utilities/Modal";
 import Registration from "../components/Registration"
-import registration from "../components/Registration";
 
 class loginForm extends Component {
     constructor(props) {
@@ -57,6 +56,28 @@ class loginForm extends Component {
     }
 
     render() {
+        const textInputs = [
+            { label: "First Name", type: "text" },
+            { label: "Last Name", type: "text" },
+            { label: "Password", type: "password" },
+            { label: "Verify Password", type: "password" },
+            { label: "Username", type: "text" },
+            { label: "Email", type: "text" },
+        ];
+
+        const textFields = textInputs.map((key) => {
+            const nospaces = key.label.replace(/\s/g, '');
+            return (
+                <TextInput
+                    id={nospaces.toLowerCase()}
+                    label={key.label}
+                    type={key.type}
+                    key={nospaces}
+                    onChange={this.handleRegistrationChange}
+                    name={nospaces.toLowerCase()}
+                />
+            )
+        })
         return (
             <div>
                 <form>
@@ -88,7 +109,7 @@ class loginForm extends Component {
                         <Registration
                             onClick={this.handleSubmit}
                             close={this.showModal}
-                            onChange={this.handleRegistrationChange}
+                            textFields={textFields}
                         />
                     </Modal>
                 </div>
