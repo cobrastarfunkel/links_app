@@ -38,14 +38,30 @@ class loginForm extends Component {
         let tempData = { ...this.state.registerData };
         tempData[name] = value;
         this.setState({ registerData: tempData });
-
-        console.log(`${JSON.stringify(this.state.registerData)}`)
     }
 
     handleSubmit = (event) => {
         event.preventDefault();
         console.log(this.state.username);
         alert(`Name and password Entered: ${this.state.username} ${this.state.password}`);
+    }
+
+    handleRegister = () => {
+        fetch('api/register', {
+            method: 'POST',
+            headers: {
+                "content_type": "application/json",
+            },
+            body: JSON.stringify(this.state.registerData),
+            credentials: 'same-origin'
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log('Success:', data);
+            })
+            .catch((err) => {
+                console.error('Error:', err);
+            });
     }
 
     showModal = (event) => {
@@ -78,6 +94,7 @@ class loginForm extends Component {
                 />
             )
         })
+
         return (
             <div>
                 <form>
@@ -107,7 +124,7 @@ class loginForm extends Component {
                 <div>
                     <Modal show={this.state.modalShowing}>
                         <Registration
-                            onClick={this.handleSubmit}
+                            onClick={this.handleRegister}
                             close={this.showModal}
                             textFields={textFields}
                         />

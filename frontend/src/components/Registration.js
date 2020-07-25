@@ -1,6 +1,5 @@
 import React from 'react';
 import './utilities/modal.css';
-import TextInput from './utilities/TextInput';
 import './registration.css'
 
 const registration = (props) => {
