@@ -1,0 +1,42 @@
+.modal {
+    display: block;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(230, 219, 219, 0.548);
+}
+
+.modal-header {
+    display: grid;
+    grid-template-columns: 1fr auto;
+}
+
+.close {
+    cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+    color: rgb(58, 58, 58);
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#register {
+    grid-column: 1;
+    padding-left: 2%;
+}
+
+.modal-content {
+    background-color: #818591;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 70%;
+    border-radius: 5px;
+    border: 1px solid rgb(170, 170, 170);
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.377);
+}

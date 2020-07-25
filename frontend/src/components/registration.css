@@ -1,0 +1,37 @@
+.reg-content {
+    display: grid;
+    grid-template-rows:
+        auto auto auto;
+    grid-template-columns: auto auto;
+    margin-bottom: 1em;
+}
+
+#firstname {
+    grid-column: 1;
+    grid-row: 1;
+}
+
+#lastname {
+    grid-column: 2;
+    grid-row: 1;
+}
+
+#password {
+    grid-column: 1;
+    grid-row: 2;
+}
+
+#verifynassword {
+    grid-column: 2;
+    grid-row: 2;
+}
+
+#username {
+    grid-column: 1;
+    grid-row: 3;
+}
+
+#email {
+    grid-column: 2;
+    grid-row: 3;
+}
