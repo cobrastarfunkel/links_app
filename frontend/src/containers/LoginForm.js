@@ -56,7 +56,7 @@ class loginForm extends Component {
         })
             .then(res => res.json())
             .then(data => {
-                console.log('Success:', data);
+                console.log('[API Response]:', data);
                 this.showModal();
             })
             .catch((err) => {
