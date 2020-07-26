@@ -19,7 +19,7 @@ const registration = (props) => {
                 {props.textFields}
             </form>
             <div>
-                <button onClick={props.onClick}>Submit</button>
+                <span className="button" onClick={props.onClick}>Submit</span>
             </div>
         </div>
     );

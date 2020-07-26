@@ -1,8 +1,8 @@
 import React, { Component } from "react";
-import TextInput from "../components/utilities/TextInput"
-import "../containers/App.css"
+import TextInput from "../components/utilities/TextInput";
+import "../containers/App.css";
 import Modal from "../components/utilities/Modal";
-import Registration from "../components/Registration"
+import Registration from "../components/Registration";
 
 class loginForm extends Component {
     constructor(props) {
@@ -40,8 +40,7 @@ class loginForm extends Component {
         this.setState({ registerData: tempData });
     }
 
-    handleSubmit = (event) => {
-        event.preventDefault();
+    handleSubmit = () => {
         console.log(this.state.username);
         alert(`Name and password Entered: ${this.state.username} ${this.state.password}`);
     }
@@ -58,14 +57,14 @@ class loginForm extends Component {
             .then(res => res.json())
             .then(data => {
                 console.log('Success:', data);
+                this.showModal();
             })
             .catch((err) => {
                 console.error('Error:', err);
             });
     }
 
-    showModal = (event) => {
-        event.preventDefault();
+    showModal = () => {
         this.setState(prevState => ({
             modalShowing: !prevState.modalShowing
         }));
@@ -116,9 +115,9 @@ class loginForm extends Component {
                             name="password"
                         />
                     </div>
-                    <div>
-                        <button onClick={this.handleSubmit}>Submit</button>
-                        <button onClick={this.showModal}>Register</button>
+                    <div className="button-container">
+                        <span className="button" onClick={this.handleSubmit}>Submit</span>
+                        <span className="button" onClick={this.showModal}>Register</span>
                     </div>
                 </form>
                 <div>

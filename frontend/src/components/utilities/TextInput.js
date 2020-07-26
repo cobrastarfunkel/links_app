@@ -2,7 +2,7 @@ import React from 'react';
 import '../../containers/App.css'
 
 const textInput = (props) => (
-    <div className="textInput">
+    <div className="text-input">
         <label>
             {props.label}
         </label>

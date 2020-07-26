@@ -1,4 +1,4 @@
-from flask import Flask, session, request
+from flask import Flask, session, request, make_response
 from flask_session import Session
 from flask_cors import CORS
 import logging
@@ -23,7 +23,8 @@ def isSet():
 @app.route("/api/register", methods=['POST'])
 def register_new_user():
     user_data = request.json
-    return {"From API": user_data}
+    response = make_response(user_data, 200)
+    return response
 
 
 if __name__ == '__main__':

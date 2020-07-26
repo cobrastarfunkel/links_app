@@ -9,3 +9,7 @@ class Config:
 
     SESSION_TYPE = 'redis'
     SESSION_REDIS = redis.from_url('redis://redis:6379')
+
+    SESSION_COOKIE_SECURE = True,
+    SESSION_COOKIE_HTTPONLY = True,
+    SESSION_COOKIE_SAMESITE = 'Lax'

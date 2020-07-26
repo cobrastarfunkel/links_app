@@ -7,11 +7,10 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <header className="App-header">
+        <header className="login-header">
+          <h1>Links App Login</h1>
         </header>
-        <div>
-          <LoginForm />
-        </div>
+        <LoginForm />
       </div>
     )
   };
