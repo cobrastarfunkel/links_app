@@ -3,6 +3,7 @@ import TextInput from "../components/utilities/TextInput";
 import "../containers/App.css";
 import Modal from "../components/utilities/Modal";
 import Registration from "../components/Registration";
+import request from "../components/utilities/request";
 
 class loginForm extends Component {
     constructor(props) {
@@ -41,27 +42,15 @@ class loginForm extends Component {
     }
 
     handleSubmit = () => {
-        console.log(this.state.username);
+        request('api/get_users', undefined, 'GET');
         alert(`Name and password Entered: ${this.state.username} ${this.state.password}`);
     }
 
     handleRegister = () => {
-        fetch('api/register', {
-            method: 'POST',
-            headers: {
-                "content_type": "application/json",
-            },
-            body: JSON.stringify(this.state.registerData),
-            credentials: 'same-origin'
-        })
-            .then(res => res.json())
-            .then(data => {
-                console.log('[API Response]:', data);
-                this.showModal();
-            })
-            .catch((err) => {
-                console.error('Error:', err);
-            });
+        let response = request('api/register', this.state.registerData, 'POST');
+        if (response) {
+            this.showModal();
+        }
     }
 
     showModal = () => {

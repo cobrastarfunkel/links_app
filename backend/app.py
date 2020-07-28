@@ -30,16 +30,15 @@ def register_new_user():
     db.users.create_index([("username", pymongo.DESCENDING)], unique=True)
     try:
         result = new_user.insert_one(user_data)
-
-        response = make_response(dumps(
-            result, default=str), 200)
+        response = make_response(
+            dumps(f"{user_data['username']} Added", default=str), 200)
     except Exception as e:
         response = make_response(dumps(
             {f"Error Occured {e}"}, default=str), 500)
     return response
 
 
-@app.route("/api/get_all")
+@app.route("/api/get_users")
 def get_users():
     collection = db['users']
     cursor = collection.find({})
